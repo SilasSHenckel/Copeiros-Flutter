@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "951525006403",
+    "firebase_url": "https://copeirosapp-3b1c7.firebaseio.com",
+    "project_id": "copeirosapp-3b1c7",
+    "storage_bucket": "copeirosapp-3b1c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951525006403:android:45b07693dcedf43945c8f6",
+        "android_client_info": {
+          "package_name": "com.copeiros"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951525006403-8p3vdf762bpt88pgk5q8s1n09grjghp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.copeiros",
+            "certificate_hash": "4973d1f24243ce7a61ab6ed402155b785dbdd7b9"
+          }
+        },
+        {
+          "client_id": "951525006403-cdg6slor8v4mu22cbc6tr07mu9rvnqt5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB0tXpcCE7MUMZNid4L0TEPAG0DKJwr_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951525006403-cdg6slor8v4mu22cbc6tr07mu9rvnqt5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
