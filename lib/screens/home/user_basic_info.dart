@@ -1,5 +1,9 @@
+import 'dart:io';
+import 'package:copeiros/models/cloud_storage_result.dart';
 import 'package:copeiros/models/user.dart';
+import 'package:copeiros/services/cloud_storage_service.dart';
 import 'package:copeiros/services/user_service.dart';
+import 'package:copeiros/shared/image_selector.dart';
 import 'package:copeiros/shared/layout_constants.dart';
 import 'package:copeiros/shared/loading.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +28,14 @@ class _UserBasicInfoState extends State<UserBasicInfo> {
   bool loading = false;
 
 //  DateTime selectedDate = DateTime.parse("19960101");
+  File _selectedImage;
+
+  Future selectImage() async{
+    var tempImage = await ImageSelector().selectImage();
+    if(tempImage != null){
+      setState(() => _selectedImage = tempImage);
+    }
+  }
 
   Sex _sex = Sex.Homem;
   String name = '';
@@ -70,10 +82,13 @@ class _UserBasicInfoState extends State<UserBasicInfo> {
                   ),
                 ),
                 SizedBox(height: 20.0,),
-                Center(
-                  child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/user_image.png'),
-                    radius: 50,
+                GestureDetector(
+                  onTap: () => selectImage(),
+                  child: Center(
+                    child: CircleAvatar(
+                      backgroundImage: _selectedImage == null ? AssetImage('assets/images/user_image.png') : Image.file(_selectedImage),
+                      radius: 50,
+                    ),
                   ),
                 ),
                 Divider(
@@ -211,9 +226,13 @@ class _UserBasicInfoState extends State<UserBasicInfo> {
                         user.nickName = nickname;
                         user.age = age;
                         user.sex = _sex.toString();
+                        if(_selectedImage != null) {
+                          CloudStorageResult storageResult = await CloudStorageService()
+                              .uploadImage(imageToUpload: _selectedImage, title: user.uid);
+                          if(storageResult != null) user.imageUrl = storageResult.imageUrl;
+                        }
                         dynamic result = await UserService().updateUserData(user);
                         widget.setUserVerified(false);
-                        //update User
                       }
                     },
                     child: Row(

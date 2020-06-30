@@ -57,6 +57,7 @@ class UserService{
         nickName: documentSnapshot.data[User.NICK_NAME] ?? '',
         sex: documentSnapshot.data[User.SEX] ?? '',
         age: documentSnapshot.data[User.AGE] ?? '',
+        imageUrl: documentSnapshot.data[User.IMAGE_URL] ?? '',
       );
     }
 }
