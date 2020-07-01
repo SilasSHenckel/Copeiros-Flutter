@@ -75,7 +75,7 @@ class _RegisterState extends State<Register>{
                   gravity: ToastGravity.CENTER,
                   timeInSecForIosWeb: 10
               );
-              await _auth.signOut();
+//              await _auth.signOut();
               widget.toggleView(signInKey);
             }
 //            else{

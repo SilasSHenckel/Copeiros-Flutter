@@ -11,9 +11,10 @@ class LoginWrapper extends StatelessWidget {
     final user = Provider.of<AuthUser>(context);
     print(user);
     //return Home or Authenticate
-    if(user == null || !user.firebaseUser.isEmailVerified){
+//    if(user == null || !user.firebaseUser.isEmailVerified){
+    if(user == null){
       return Authenticate();
-    }else{
+    } else{
       return HomeWrapper(uid: user.uid, email: user.firebaseUser.email);
     }
   }

@@ -75,19 +75,19 @@ class _SignInState extends State<SignIn> {
                 loading = false;
               });
             }else{
-              if(!result.firebaseUser.isEmailVerified){
-                Fluttertoast.showToast(
-                    msg: 'O link de ativação da sua conta foi enviado para o seu email, conclua seu cadastro!',
-                    toastLength: Toast.LENGTH_LONG,
-                    backgroundColor: Colors.black54,
-                    textColor:  Colors.white,
-                    gravity: ToastGravity.CENTER,
-                    timeInSecForIosWeb: 10
-                );
-                setState(() {
-                  loading = false;
-                });
-              }
+//              if(!result.firebaseUser.isEmailVerified){
+//                Fluttertoast.showToast(
+//                    msg: 'O link de ativação da sua conta foi enviado para o seu email, conclua seu cadastro!',
+//                    toastLength: Toast.LENGTH_LONG,
+//                    backgroundColor: Colors.black54,
+//                    textColor:  Colors.white,
+//                    gravity: ToastGravity.CENTER,
+//                    timeInSecForIosWeb: 10
+//                );
+//                setState(() {
+//                  loading = false;
+//                });
+//              }
             }
           }
         },
