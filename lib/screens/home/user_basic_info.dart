@@ -7,6 +7,7 @@ import 'package:copeiros/shared/image_selector.dart';
 import 'package:copeiros/shared/layout_constants.dart';
 import 'package:copeiros/shared/loading.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class UserBasicInfo extends StatefulWidget {
 
@@ -30,11 +31,10 @@ class _UserBasicInfoState extends State<UserBasicInfo> {
 //  DateTime selectedDate = DateTime.parse("19960101");
   File _selectedImage;
 
+  //    File tempImage = await ImageSelector().selectImage();
   Future selectImage() async{
-    var tempImage = await ImageSelector().selectImage();
-    if(tempImage != null){
-      setState(() => _selectedImage = tempImage);
-    }
+    var tempImage = await ImagePicker.pickImage(source: ImageSource.gallery);
+    if(tempImage != null) setState(() => _selectedImage = tempImage);
   }
 
   Sex _sex = Sex.Homem;
